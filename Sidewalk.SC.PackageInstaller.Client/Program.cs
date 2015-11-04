@@ -60,6 +60,7 @@ namespace Sidewalk.SC.PackageInstaller.Client
                 string publishTargets = null;
                 bool publishChildrenItems = false;
                 bool removeConnector = false;
+                bool acceptSsl = false;
 
                 // Options declaration
                 OptionSet options = new OptionSet()
@@ -131,6 +132,10 @@ namespace Sidewalk.SC.PackageInstaller.Client
                     {
                         "rc|removeconnector", "Remove the conenctor after the installation. it will remodify the bin folder so you should consider to let the conenctor for a better performance.",
                         v => removeConnector = v != null
+                    },
+                    {
+                        "ssl", "Accept the self registered ssl certificate",
+                        v => acceptSsl = v != null
                     },
                 };
 
@@ -250,7 +255,7 @@ namespace Sidewalk.SC.PackageInstaller.Client
                             {
                                 if (connectorMode.Equals("tds", StringComparison.InvariantCultureIgnoreCase))
                                 {
-                                    RequestTheHandler(sitecoreWebURL, packagePath);
+                                    RequestTheHandler(sitecoreWebURL, packagePath, acceptSsl);
                                 }
                                 else
                                 {
@@ -377,11 +382,16 @@ namespace Sidewalk.SC.PackageInstaller.Client
         }
 
 
-        private static void RequestTheHandler(string sitecoreWebUrl, string packagePath)
+        private static void RequestTheHandler(string sitecoreWebUrl, string packagePath, bool acceptSsl)
         {
             try
             {
                 var handlerUrl = $"{sitecoreWebUrl}{ConfigurationManager.AppSettings["SitecoreConnectorFolder"]}/SitecorePackageInstaller.ashx?package={packagePath}&install=1&upgrade=0&history=";
+
+                log.Info($"Calling the webservice url: {handlerUrl}");
+
+                if(acceptSsl)
+                    ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
                 // Creates an HttpWebRequest with the specified URL. 
                 HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(handlerUrl);
