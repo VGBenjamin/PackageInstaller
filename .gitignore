@@ -210,3 +210,8 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/Libraries/Sitecore.Kernel.dll
+/Libraries/Sitecore.Logging.dll
+/Libraries/Sitecore.Zip.dll
+/Libraries/Sitecore.Client.dll
+/Libraries/Sitecore.Client.dll
