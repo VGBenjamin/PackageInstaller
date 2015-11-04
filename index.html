@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sitecore Package Installer by VGBenjamin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Sitecore Package Installer</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/VGBenjamin/PackageInstaller" class="btn">View on GitHub</a>
+      <a href="https://github.com/VGBenjamin/PackageInstaller/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/VGBenjamin/PackageInstaller/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="the-project" class="anchor" href="#the-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>The project</h3>
+
+<p>This project allow you install the Sitecore packages files in command line. It support both the .zip and .update files.</p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>You need to download and extract the <a href="https://github.com/VGBenjamin/PackageInstaller/raw/master/Sidewalk.PackageInstaller.zip">PackageInstaller zip file</a> or build the source.</p>
+
+<h2>
+<a id="arguments" class="anchor" href="#arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arguments</h2>
+
+<p>-p, --packagePath=PACKAGE PATH
+                         The PACKAGE PATH is the path to the package. The
+                           package must be located in a folder reachable by
+                           the web server.</p>
+
+<p>-u, --sitecoreUrl=SITECORE URL
+                         The SITECORE URL is the url to the root of the
+                           Sitecore server.</p>
+
+<p>-f, --sitecoreDeployFolder=SITECORE DEPLOY FOLDER
+                         The SITECORE DEPLOY FOLDER is the UNC path to
+                           the Sitecore web root.</p>
+
+<p>-c, --connector=INSTALLATON MODE
+                         The INSTALLATON MODE could be tds or sitecore.</p>
+
+<p>--pb, --publish        Publish some items.</p>
+
+<p>--pbc, --publishChildrenItems
+                     Publish the children items also. Need to be use
+                       with the -publish option. If you don't specify
+                       this flag you need to specify the paramter -
+                       publishRootItem</p>
+
+<p>--pbsdb, --publishSourceDb=VALUE
+                     The source database to publish from (master if
+                       ommited). Need to be use with the -publish
+                       option.</p>
+
+<p>--pbtdb, --publishTargetDb=VALUE
+                     The target database to publish to (web if
+                       ommited). Need to be use with the -publish
+                       option.</p>
+
+<p>--pbl, --publishLanguage=VALUE
+                     The language to publish (all if ommited). Need
+                       to be use with the -publish option.</p>
+
+<p>--pbi, --publishRootItem=VALUE
+                     The root item to publish (all if ommited). Need
+                       to be use with the -publish option.</p>
+
+<p>--pbm, --publishMode=VALUE
+                     The publish mode must be one of those values:
+                       Full, Incremental, SingleItem, Smart (Full if
+                       ommited). Need to be use with the -publish
+                       option.</p>
+
+<p>--pbt, --publishTargets=VALUE
+                     The publish target separated by a coma if
+                       multiple targets. Need to be use with the -
+                       publish option.</p>
+
+<p>-h, --help                 Show this message and exit.</p>
+
+<p>--rc, --removeconnector
+                     Remove the conenctor after the installation. it
+                       will remodify the bin folder so you should
+                       consider to let the conenctor for a better
+                       performance.
+--ssl                  Accept the self registered ssl certificate</p>
+
+<h2>
+<a id="usage-examples" class="anchor" href="#usage-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage Examples</h2>
+
+<h1>
+<a id="install-a-sitecore-package" class="anchor" href="#install-a-sitecore-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a sitecore package</h1>
+
+<pre><code>Sidewalk.SC.PackageInstaller.Client.exe -sitecoreUrl "http://sc72rev140228" -sitecoreDeployFolder "C:\inetpub\wwwroot\sc72rev140228\Website" -packagePath "C:\temp\TestPkg.zip" -connector "sitecore"
+</code></pre>
+
+<h1>
+<a id="install-a-tds-package" class="anchor" href="#install-a-tds-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install a TDS package</h1>
+
+<pre><code>Sidewalk.SC.PackageInstaller.Client.exe -sitecoreUrl "http://sc72rev140228" -sitecoreDeployFolder "C:\inetpub\wwwroot\sc72rev140228\Website" -packagePath "\Examples\TestPackage.TDS.update" -connector "tds"
+</code></pre>
+
+<h3>
+<a id="sources" class="anchor" href="#sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sources</h3>
+
+<p>The dlls of Sitecore are not commited with the sources because of the license. If you need to build you should first copy the dll's of Sitecore into the Libraries folder.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/VGBenjamin/PackageInstaller">Sitecore Package Installer</a> is maintained by <a href="https://github.com/VGBenjamin">VGBenjamin</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
