@@ -1,5 +1,5 @@
 ### The project
-This project allow you install the Sitecore packages files in command line. It support both the .zip and .update files.
+This project allow you to install the Sitecore packages files in command line. It support both the .zip and .update files.
 
 ### Usage
 ## Install
