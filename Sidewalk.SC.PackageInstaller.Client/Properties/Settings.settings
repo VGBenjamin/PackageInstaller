@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Sidewalk.SC.PackageInstaller.Client.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Sidewalk_SC_PackageInstaller_Client_ServiceReference_SitecorePackageInstaller" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://sidewalk.whitelabel/_BIN/SitecorePackageInstaller.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

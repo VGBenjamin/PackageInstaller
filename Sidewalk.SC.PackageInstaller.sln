@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sidewalk.SC.PackageInstaller.Client", "Sidewalk.SC.PackageInstaller.Client\Sidewalk.SC.PackageInstaller.Client.csproj", "{08F47CB4-1F4F-4972-940D-D564C819E608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sidewalk.SC.PackageInstaller.Service", "Sidewalk.SC.PackageInstaller.Service\Sidewalk.SC.PackageInstaller.Service.csproj", "{67ED1290-22A0-4559-BD51-EA8B9553E944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sidewalk.SC.PackageInstaller.Common", "Sidewalk.SC.PackageInstaller.Common\Sidewalk.SC.PackageInstaller.Common.csproj", "{91A4D830-BCEE-47DA-A290-03682487E587}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08F47CB4-1F4F-4972-940D-D564C819E608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F47CB4-1F4F-4972-940D-D564C819E608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F47CB4-1F4F-4972-940D-D564C819E608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F47CB4-1F4F-4972-940D-D564C819E608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67ED1290-22A0-4559-BD51-EA8B9553E944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67ED1290-22A0-4559-BD51-EA8B9553E944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67ED1290-22A0-4559-BD51-EA8B9553E944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67ED1290-22A0-4559-BD51-EA8B9553E944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A4D830-BCEE-47DA-A290-03682487E587}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A4D830-BCEE-47DA-A290-03682487E587}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A4D830-BCEE-47DA-A290-03682487E587}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A4D830-BCEE-47DA-A290-03682487E587}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
