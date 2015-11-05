@@ -46,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\Sitecore.Update.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Zip, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Sitecore.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -66,13 +70,15 @@
     <Compile Include="SitecorePackageInstallerHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Sidewalk.SC.PackageInstaller.Common\Sidewalk.SC.PackageInstaller.Common.csproj">
       <Project>{91a4d830-bcee-47da-a290-03682487e587}</Project>
       <Name>Sidewalk.SC.PackageInstaller.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
