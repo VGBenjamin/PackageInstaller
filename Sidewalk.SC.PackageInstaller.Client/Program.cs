@@ -361,13 +361,10 @@ namespace Sidewalk.SC.PackageInstaller.Client
             catch (Exception ex)
             {
                 log.Error("Unexpected exception", ex);
-            }
-            finally
-            {
-                WaitIfNotDebug();
                 Environment.Exit(103);
             }
 
+            WaitIfNotDebug();
             #endregion
 
 

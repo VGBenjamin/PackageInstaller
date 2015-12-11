@@ -1,5 +1,5 @@
 param(
-	[string]$source = "C:\Projects\Sitecore\PackageInstaller\Sidewalk.SC.PackageInstaller.Client\bin\Debug\",
+	[string]$source = "C:\Projects\Sitecore\PackageInstaller\Sidewalk.SC.PackageInstaller.Client\bin\Release\",
 	[string]$destination = "C:\Projects\Sitecore\PackageInstaller\Sidewalk.PackageInstaller.zip"
 )
 
