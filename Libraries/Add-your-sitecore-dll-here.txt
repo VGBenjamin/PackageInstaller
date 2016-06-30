@@ -1,0 +1,7 @@
+Du to sitecore license I cannot put the sitecore dlls on github. 
+You should copy the following dlls in this folder:
+- Sitecore.Client.dll
+- Sitecore.Kernel.dll
+- Sitecore.Logging.dll
+- Sitecore.Update.dll
+- Sitecore.Zip.dll
