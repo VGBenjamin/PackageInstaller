@@ -68,6 +68,8 @@ You need to download and extract the [PackageInstaller zip file](https://github.
 					   performance.
 --ssl                  Accept the self registered ssl certificate
 
+--mm, --mergeMode
+                     The merge mode to be used while installing regular Sitecore package. The mode accepted are overwrite, merge, clear, append, skip. Which corresponds to Sitecore's Overwrite, merge/merge, merge/clear, merge/append, merge/skip modes. If mergeMode not specified overwrite is used. Any value other then specification throws Error.
 ## Usage Examples
 # Install a sitecore package
     Sidewalk.SC.PackageInstaller.Client.exe -sitecoreUrl "http://sc72rev140228" -sitecoreDeployFolder "C:\inetpub\wwwroot\sc72rev140228\Website" -packagePath "C:\temp\TestPkg.zip" -connector "sitecore"
