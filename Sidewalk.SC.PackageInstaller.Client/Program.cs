@@ -61,6 +61,7 @@ namespace Sidewalk.SC.PackageInstaller.Client
                 bool publishChildrenItems = false;
                 bool removeConnector = false;
                 bool acceptSsl = false;
+                string mergeMode = null;
 
                 // Options declaration
                 OptionSet options = new OptionSet()
@@ -137,6 +138,10 @@ namespace Sidewalk.SC.PackageInstaller.Client
                         "ssl", "Accept the self registered ssl certificate",
                         v => acceptSsl = v != null
                     },
+                    {
+                        "mm|mergeMode=", "Define the merge mode to install the package",
+                        v => mergeMode = v
+                    }
                 };
 
                 #endregion
@@ -278,7 +283,20 @@ namespace Sidewalk.SC.PackageInstaller.Client
                                             else if (connectorMode.Equals("sitecore",
                                                 StringComparison.InvariantCultureIgnoreCase))
                                             {
-                                                service.InstallPackage(packagePath);
+                                                if (mergeMode != null)
+                                                {
+                                                    if (!mergeMode.ToLower().Equals("merge") && 
+                                                        !mergeMode.ToLower().Equals("clear") && 
+                                                        !mergeMode.ToLower().Equals("append") && 
+                                                        !mergeMode.ToLower().Equals("skip") && 
+                                                        !mergeMode.ToLower().Equals("overwrite"))
+                                                    {
+                                                        log.Error("Merge mode wrong. Accepted modes=> merge, clear, append, overwrite, skip. Default mode overwrite(if mergeMode not provided)");
+                                                        Environment.Exit(106);
+                                                    }
+                                                    mergeMode = mergeMode.ToLower();
+                                                }
+                                                service.InstallPackage(packagePath, mergeMode);
                                             }
                                             log.Debug("Update package installed successfully.");
                                         }

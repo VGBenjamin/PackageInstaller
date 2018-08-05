@@ -32,7 +32,7 @@ namespace Sidewalk.SC.PackageInstaller.Service
         /// </summary>
         /// <param name="path">A path to a package that is reachable by the web server</param>
         [WebMethod(Description = "Installs a Sitecore Package.")]
-        public void InstallPackage(string path)
+        public void InstallPackage(string path, string mergeMode)
         {
             // Use default logger
             ILog log = LogManager.GetLogger("root");
@@ -51,8 +51,26 @@ namespace Sidewalk.SC.PackageInstaller.Service
                     using (new SyncOperationContext())
                     {
                         Sitecore.Install.Framework.IProcessingContext context = new Sitecore.Install.Framework.SimpleProcessingContext(); // 
-                        Sitecore.Install.Items.IItemInstallerEvents events =
-                            new Sitecore.Install.Items.DefaultItemInstallerEvents(new Sitecore.Install.Utils.BehaviourOptions(Sitecore.Install.Utils.InstallMode.Overwrite, Sitecore.Install.Utils.MergeMode.Undefined));
+                        Sitecore.Install.Items.IItemInstallerEvents events = null;
+                        if (mergeMode == null || mergeMode.Equals("overwrite"))
+                        {
+                            events = new Sitecore.Install.Items.DefaultItemInstallerEvents(new Sitecore.Install.Utils.BehaviourOptions(Sitecore.Install.Utils.InstallMode.Overwrite, Sitecore.Install.Utils.MergeMode.Undefined));
+                        }
+                        else if (mergeMode.Equals("merge"))
+                        {
+                            events = new Sitecore.Install.Items.DefaultItemInstallerEvents(new Sitecore.Install.Utils.BehaviourOptions(Sitecore.Install.Utils.InstallMode.Merge, Sitecore.Install.Utils.MergeMode.Merge));
+                        }
+                        else if (mergeMode.Equals("clear"))
+                        {
+                            events = new Sitecore.Install.Items.DefaultItemInstallerEvents(new Sitecore.Install.Utils.BehaviourOptions(Sitecore.Install.Utils.InstallMode.Merge, Sitecore.Install.Utils.MergeMode.Clear));
+                        }
+                        else if (mergeMode.Equals("append"))
+                        {
+                            events = new Sitecore.Install.Items.DefaultItemInstallerEvents(new Sitecore.Install.Utils.BehaviourOptions(Sitecore.Install.Utils.InstallMode.Merge, Sitecore.Install.Utils.MergeMode.Append));
+                        } else if (mergeMode.Equals("skip"))
+                        {
+                            events = new Sitecore.Install.Items.DefaultItemInstallerEvents(new Sitecore.Install.Utils.BehaviourOptions(Sitecore.Install.Utils.InstallMode.Skip, Sitecore.Install.Utils.MergeMode.Undefined));
+                        }
                         context.AddAspect(events);
                         Sitecore.Install.Files.IFileInstallerEvents events1 = new Sitecore.Install.Files.DefaultFileInstallerEvents(true);
                         context.AddAspect(events1);

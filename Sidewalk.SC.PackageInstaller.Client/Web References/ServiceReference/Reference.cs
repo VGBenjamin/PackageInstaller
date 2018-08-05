@@ -23,7 +23,7 @@ namespace Sidewalk.SC.PackageInstaller.Client.ServiceReference {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.81.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="SitecorePackageInstallerSoap", Namespace="http://sitecoreblog.blogspot.be/")]
@@ -39,7 +39,7 @@ namespace Sidewalk.SC.PackageInstaller.Client.ServiceReference {
         
         /// <remarks/>
         public SitecorePackageInstaller() {
-            this.Url = Properties.Settings.Default.Sidewalk_SC_PackageInstaller_Client_ServiceReference_SitecorePackageInstaller;
+            this.Url = global::Sidewalk.SC.PackageInstaller.Client.Properties.Settings.Default.Sidewalk_SC_PackageInstaller_Client_ServiceReference_SitecorePackageInstaller;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -84,23 +84,25 @@ namespace Sidewalk.SC.PackageInstaller.Client.ServiceReference {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://sitecoreblog.blogspot.be/InstallPackage", RequestNamespace="http://sitecoreblog.blogspot.be/", ResponseNamespace="http://sitecoreblog.blogspot.be/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void InstallPackage(string path) {
+        public void InstallPackage(string path, string mergeMode) {
             this.Invoke("InstallPackage", new object[] {
-                        path});
+                        path,
+                        mergeMode});
         }
         
         /// <remarks/>
-        public void InstallPackageAsync(string path) {
-            this.InstallPackageAsync(path, null);
+        public void InstallPackageAsync(string path, string mergeMode) {
+            this.InstallPackageAsync(path, mergeMode, null);
         }
         
         /// <remarks/>
-        public void InstallPackageAsync(string path, object userState) {
+        public void InstallPackageAsync(string path, string mergeMode, object userState) {
             if ((this.InstallPackageOperationCompleted == null)) {
                 this.InstallPackageOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInstallPackageOperationCompleted);
             }
             this.InvokeAsync("InstallPackage", new object[] {
-                        path}, this.InstallPackageOperationCompleted, userState);
+                        path,
+                        mergeMode}, this.InstallPackageOperationCompleted, userState);
         }
         
         private void OnInstallPackageOperationCompleted(object arg) {
@@ -199,7 +201,7 @@ namespace Sidewalk.SC.PackageInstaller.Client.ServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.81.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://sitecoreblog.blogspot.be/")]
     public enum PublishMode {
@@ -221,15 +223,15 @@ namespace Sidewalk.SC.PackageInstaller.Client.ServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.81.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void InstallPackageCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.81.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void InstallTdsPackageCompletedEventHandler(object sender, InstallTdsPackageCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.81.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class InstallTdsPackageCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -251,7 +253,7 @@ namespace Sidewalk.SC.PackageInstaller.Client.ServiceReference {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.81.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     public delegate void PublishCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
